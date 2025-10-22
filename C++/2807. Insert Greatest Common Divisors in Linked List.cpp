@@ -21,11 +21,11 @@ public:
         }
         // iterate down from half val to current gcd ()
         ListNode* currPointer = head;
-        ListNode* nextPointer = head->next; NEED TO MAKE SO WHILE GOES THROUGH W LAST NODE, DO BY
-        STARTING ITER W 0-ETH AND 1ST AS NXT
+        ListNode* nextPointer = head->next; 
         long long max; 
         long long min;
         int remainder;
+
         do{
             if (currPointer->val > nextPointer->val){
                 max = currPointer->val;
@@ -36,10 +36,11 @@ public:
                 min = currPointer->val;
             }
             remainder = max % min;
+            
             while (remainder != 0){
-                std::cout << "max: " << max << std::endl;
-                std::cout << "min: " << min << std::endl;
-                std::cout << "remainder: " << remainder << std::endl;
+                // std::cout << "max: " << max << std::endl;
+                // std::cout << "min: " << min << std::endl;
+                // std::cout << "remainder: " << remainder << std::endl;
                 if (remainder % min == 0){
                     break;
                 }
@@ -52,6 +53,7 @@ public:
             currPointer->next = gcdNode;
             currPointer = gcdNode->next;
             nextPointer = nextPointer->next;
+            
         } while (currPointer->next != nullptr);
         
         return head;
